@@ -32,7 +32,8 @@ def send(ser):
         weather = j['weather'][0]['main']
         temp = j['main']['temp']
         hum = j['main']['humidity']
-        dt = j['dt']
+        dt = time.time() - 3600 * 2
+        print(dt)
 
         bt = bytearray(int_to_bytes(int(temp - 273.15), 1))
         bh = bytearray(int_to_bytes(int(hum), 1))
